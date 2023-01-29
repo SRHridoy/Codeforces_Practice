@@ -24,6 +24,7 @@ void solve(){
     }else{
         cout << 1 << " " << n/2 << endl;
     }
+    //Tis is it...
 }
 
 int32_t main(){
