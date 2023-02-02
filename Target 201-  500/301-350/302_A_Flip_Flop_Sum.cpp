@@ -23,24 +23,11 @@ void solve(){
     fo(i,n){
         cin >> v[i];
     }
-    int cnt = count(all(v),-1);
-    //cnt = cnt;
-    //cout << cnt << endl;
-    if(cnt == 1){
-        int ans = accumulate(all(v),0);
-        cout << ans << endl;
-        return;
-    }
-    if(cnt>1){
-        int ans = accumulate(all(v),4);
-        cout << ans << endl;
-        return;
-    }
-    if(cnt < 1){
-        int ans = accumulate(all(v),-4);
-        cout << ans << endl;
-        return;
-    }
+    int sum = accumulate(all(v),0);
+    int ans = INT_MIN;
+    fo(i,n-1){
+        ans = max(ans, sum - 2 * v[i] - 2 * v[i+1]);
+    }cout << ans << endl;
 
 }
 
