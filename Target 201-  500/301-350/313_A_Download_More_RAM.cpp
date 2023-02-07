@@ -20,34 +20,24 @@ using namespace std;
 void solve(){
     int n, k;
     cin >> n >> k;
-    vector<int>a;
-    vector<int>b(n);
-    int ans  = 0;
-    int cnt = 0;
-    fo(i,n) {
-        int x;cin >> x;
-        a.pb(x);
-        if(k<x){
-            cnt++;
-        }
-    }
-    fo(i,n) cin >> b[i];
-    if(cnt==n){
-        cout << k << endl;
-        return;
-    }
-
-    vector<int>index;
+    vector<pair<int,int>>v(n);
     fo(i,n){
-        if(a[i]<=k){
-            index.pb(i);
-        }
+        int x; cin >> x;
+        v[i].first = x;
+    }
+    fo(i,n){
+        int x; cin >> x;
+        v[i].second = x;
     }
     int finalRam = k;
-    fo(i,index.size()){
-        finalRam+=b[index[i]];
+    sort(all(v));
+    fo(i,n){
+        if(v[i].first<=finalRam){
+            finalRam+=v[i].second;
+        }
     }
-    cout << finalRam << endl;
+    cout << finalRam <<endl;
+
 }
 
 int32_t main(){
