@@ -19,7 +19,22 @@ using namespace std;
 
 void solve(){
     int n , k; cin >> n >> k;
-    
+    vector<int>ans;
+    while (n--)
+    {
+        int f, t;
+        cin >> f >> t;
+        int m = INT_MIN, n = INT_MIN;
+        if(t>k){
+            m = f- (t-k);
+        }else{
+            n = f;
+        }
+        int maxi = max(m,n);
+        ans.pb(maxi);
+    }
+    int ansMax = *max_element(all(ans));
+    cout << ansMax << endl;
 }
 
 int32_t main(){
