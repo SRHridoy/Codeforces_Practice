@@ -18,8 +18,19 @@
 using namespace std;
 
 void solve(){
-    int n , k; cin >> n >> k;
-    
+    int n, k; cin >> n >> k;
+    vector<string>v(n);
+    fo(i,n) cin >> v[i];
+    int ans = 0;
+    fo(i,n){
+        int x4 = count(all(v[i]),'4');
+        int x7 = count(all(v[i]),'7');
+        int x47 = x4 + x7;
+        if(x47<=k){
+            ans++;
+        }
+    }
+    cout << ans << endl;
 }
 
 int32_t main(){

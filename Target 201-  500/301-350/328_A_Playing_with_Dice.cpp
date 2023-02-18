@@ -18,36 +18,16 @@
 using namespace std;
 
 void solve(){
-    int n, k;
-    cin >> n >> k;
-    vector<int>a;
-    vector<int>b(n);
-    int ans  = 0;
-    int cnt = 0;
-    fo(i,n) {
-        int x;cin >> x;
-        a.pb(x);
-        if(k<x){
-            cnt++;
+    int a, b; cin >> a >> b;
+    int cntA = 0, cntB = 0;
+    Fo(i,1,7){
+        if(abs(a-i) < abs(b-i)){
+            cntA++;
+        }else if(abs(a-i) > abs(b-i)){
+                cntB++;
         }
-    }
-    fo(i,n) cin >> b[i];
-    if(cnt==n){
-        cout << k << endl;
-        return;
-    }
-
-    vector<int>index;
-    fo(i,n){
-        if(a[i]<=k){
-            index.pb(i);
-        }
-    }
-    int finalRam = k;
-    fo(i,index.size()){
-        finalRam+=b[index[i]];
-    }
-    cout << finalRam << endl;
+    }int draw = 6 - (cntA+cntB);
+    cout << cntA << " " << draw << " " << cntB << endl; 
 }
 
 int32_t main(){
@@ -56,9 +36,9 @@ int32_t main(){
     cout.tie(NULL);
 
     int t;
-    //t = 1;
+    t = 1;
     //int cs = 1;
-    cin >> t;
+    //cin >> t;
     while (t--){
         //cout << "Case-#" << cs <<": ";
         solve();
