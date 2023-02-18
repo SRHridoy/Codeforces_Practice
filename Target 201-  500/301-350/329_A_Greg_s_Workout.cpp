@@ -18,25 +18,25 @@
 using namespace std;
 
 void solve(){
-    string s; cin >> s;
-    int k,ans=0; cin >> k;
-    int alp[26];
-    for(int i=0; i<26; i++){
-        cin >> alp[i];
+    int n; cin >> n;
+    vector<int>v(n);
+    fo(i,n) cin >> v[i];
+    int chest = 0, bicep = 0, back = 0;
+    for(int i = 0;i < n; i+=3){
+        chest+=v[i];
+    }for(int i = 1; i < n; i+=3){
+        bicep+=v[i];
+    }for(int i = 2; i < n; i+=3){
+        back+=v[i];
     }
-    for(int i=0; i<s.size(); i++){
-        int index = s[i];
-        index -= 97;
-        ans += ( alp[index]*(i+1) );
+    if(chest >=bicep and chest >= back){
+        cout << "chest" << endl;
+    }else if(bicep >= chest and bicep >= back){
+        cout << "biceps" << endl;
+    }else{
+        cout << "back" << endl;
     }
-    sort(alp,alp+26);
-    int start = s.size()+1;
-    for(int i=0; i<k; i++){
-        ans += alp[25]*start;
-        start++;
-    }
-
-    cout << ans << endl;
+    //cout << chest << " " << bicep << " " << back << endl;
 }
 
 int32_t main(){
