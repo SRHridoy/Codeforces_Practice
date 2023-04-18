@@ -15,5 +15,6 @@ int32_t main(){
         else
             ans--;
     }
+    
     cout << ans << endl;
 }
