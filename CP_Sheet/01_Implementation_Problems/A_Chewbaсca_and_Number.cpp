@@ -15,6 +15,7 @@ int32_t main(){
         return 0;
     }
 
+//restart
     vector<int>v(digits);
     while(x>0){
         int rem = 0;
